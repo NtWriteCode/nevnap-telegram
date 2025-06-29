@@ -29,4 +29,19 @@ This service sends a daily Telegram message with the Hungarian name days for the
       -e TELEGRAM_BOT_TOKEN="your_token" \
       -e TELEGRAM_CHAT_ID="your_chat_id" \
       nevnap-service
-    ``` 
+    ```
+
+## Running with Docker Compose
+
+You can also use Docker Compose to run the service. Here is an example `docker-compose.yml` file:
+
+```yaml
+services:
+  nevnap-telegram:
+    image: ntwritecode/nevnap-telegram:latest
+    container_name: nevnap
+    restart: unless-stopped
+    environment:
+      - TELEGRAM_BOT_TOKEN="your_bot_token"
+      - TELEGRAM_CHAT_ID="your_chat_id"
+``` 
